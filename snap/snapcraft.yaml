@@ -1,0 +1,112 @@
+name: real-time-tests 
+base: core22 
+version: '0.1' 
+summary: Real time tests for UC22
+description: |
+  Based on Real Time Tests debian package rt-tests, done by Clark Williams
+  and Steven Rostedt. This snap is a collection of programs to test the
+  real-time capabilities of the Linux kernel. It includes programs to
+  measure the latencies of the kernel, to test the scheduler, and to
+  test the real-time capabilities of the kernel.
+
+license: GPL-2.0
+
+architectures:
+  - build-on: amd64
+
+grade: stable
+confinement: strict
+
+parts:
+  rt-tests:
+    plugin: nil
+    source-branch: main
+    source: git://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
+    build-packages:
+      - gcc
+      - make
+      - libnuma-dev
+    stage-packages:
+      - libnuma1
+
+    override-build: |
+      mkdir -p $CRAFT_PART_INSTALL/usr/local/bin
+      DESTDIR=$CRAFT_PART_INSTALL make install
+      
+# TODO: Add the necessary plugs
+
+apps:
+  cyclicdeadline:
+    command: usr/local/bin/cyclicdeadline
+    plugs:
+      - system-observe
+  
+  cyclictest:
+    command: usr/local/bin/cyclictest
+    plugs:
+      - system-observe
+
+  deadlinetest:
+    command: usr/local/bin/deadline_test
+    plugs:
+      - system-observe
+  
+  hackbench:
+    command: usr/local/bin/hackbench
+    plugs:
+      - system-observe
+
+  oslat:
+    command: usr/local/bin/oslat
+    plugs:
+      - system-observe
+
+  pi-stress:
+    command: usr/local/bin/pi_stress
+    plugs:
+      - system-observe 
+
+  pip-stress:
+    command: usr/local/bin/pip_stress
+    plugs:
+      - system-observe
+
+  pmqtest:
+    command: usr/local/bin/pmqtest
+    plugs:
+      - system-observe
+  
+  ptsematest:
+    command: usr/local/bin/ptsematest
+    plugs:
+      - system-observe
+
+  queuelat:
+    command: usr/local/bin/queuelat
+    plugs:
+      - system-observe
+
+  rt-migrate-test:
+    command: usr/local/bin/rt-migrate-test
+    plugs:
+      - system-observe
+  
+  signaltest:
+    command: usr/local/bin/signaltest
+    plugs:
+      - system-observe
+  
+  sigwaittest:
+    command: usr/local/bin/sigwaittest
+    plugs:
+      - system-observe
+  
+  ssdd:
+    command: usr/local/bin/ssdd
+    plugs:
+      - system-observe
+  
+  svsematest:
+    command: usr/local/bin/svsematest
+    plugs:
+      - system-observe
