@@ -32,6 +32,8 @@ parts:
     override-build: |
       mkdir -p $CRAFT_PART_INSTALL/usr/local/bin
       DESTDIR=$CRAFT_PART_INSTALL make install
+      rm -rf $CRAFT_PART_INSTALL/usr/bin/hwlatdetect
+      rm -rf $CRAFT_PART_INSTALL/usr/bin/get_cyclictest_snapshot
       
 # TODO: Add the necessary plugs
 
@@ -39,74 +41,74 @@ apps:
   cyclicdeadline:
     command: usr/local/bin/cyclicdeadline
     plugs:
-      - system-observe
+      - network
   
   cyclictest:
     command: usr/local/bin/cyclictest
     plugs:
-      - system-observe
+      - network
 
   deadlinetest:
     command: usr/local/bin/deadline_test
     plugs:
-      - system-observe
+      - network
   
   hackbench:
     command: usr/local/bin/hackbench
     plugs:
-      - system-observe
+      - network
 
   oslat:
     command: usr/local/bin/oslat
     plugs:
-      - system-observe
+      - network
 
   pi-stress:
     command: usr/local/bin/pi_stress
     plugs:
-      - system-observe 
+      - network
 
   pip-stress:
     command: usr/local/bin/pip_stress
     plugs:
-      - system-observe
+      - network
 
   pmqtest:
     command: usr/local/bin/pmqtest
     plugs:
-      - system-observe
+      - network
   
   ptsematest:
     command: usr/local/bin/ptsematest
     plugs:
-      - system-observe
+      - network
 
   queuelat:
     command: usr/local/bin/queuelat
     plugs:
-      - system-observe
+      - network
 
   rt-migrate-test:
     command: usr/local/bin/rt-migrate-test
     plugs:
-      - system-observe
+      - network
   
   signaltest:
     command: usr/local/bin/signaltest
     plugs:
-      - system-observe
+      - network
   
   sigwaittest:
     command: usr/local/bin/sigwaittest
     plugs:
-      - system-observe
+      - network
   
   ssdd:
     command: usr/local/bin/ssdd
     plugs:
-      - system-observe
+      - network
   
   svsematest:
     command: usr/local/bin/svsematest
     plugs:
-      - system-observe
+      - network
