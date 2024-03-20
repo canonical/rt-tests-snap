@@ -1,7 +1,8 @@
 
 # Real Time Tests Snap 
 
-This snap is based on the debian package `rt-tests` and it's meant to be an unofficial version of this package in snap 
+This snap is based on the debian package [rt-tests](https://wiki.linuxfoundation.org/realtime/documentation/howto/tools/rt-tests) 
+and it's meant to be an unofficial version of this package in snap 
 ecosystem, intended for use in systems that do not have any other package manager besides snapd, specifically 
 Ubuntu Core systems.
 
