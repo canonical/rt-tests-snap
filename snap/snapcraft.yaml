@@ -1,6 +1,6 @@
 name: real-time-tests 
 base: core22 
-version: '0.1' 
+version: '0.2' 
 summary: Real time tests for UC22
 description: |
   Based on Real Time Tests debian package rt-tests, maintened by Clark Williams
@@ -25,7 +25,7 @@ parts:
     build-packages:
       - gcc
       - make
-      - libnuma-dev
+      - python3
     stage-packages:
       - libnuma1
 
@@ -36,95 +36,78 @@ parts:
       rm $CRAFT_PART_INSTALL/usr/local/bin/hwlatdetect
       rm $CRAFT_PART_INSTALL/usr/local/bin/get_cyclictest_snapshot
       
-# TODO: Add the necessary plugs
-
 apps:
   cyclicdeadline:
     command: usr/local/bin/cyclicdeadline
     plugs:
-      - network
       - process-control
   
   cyclictest:
     command: usr/local/bin/cyclictest
     plugs:
-      - network
       - process-control
 
   deadlinetest:
     command: usr/local/bin/deadline_test
     plugs:
-      - network
       - process-control
   
   hackbench:
     command: usr/local/bin/hackbench
     plugs:
-      - network
       - process-control
 
   oslat:
     command: usr/local/bin/oslat
     plugs:
-      - network
       - process-control
 
   pi-stress:
     command: usr/local/bin/pi_stress
     plugs:
-      - network
       - process-control
 
   pip-stress:
     command: usr/local/bin/pip_stress
     plugs:
-      - network
       - process-control
 
   pmqtest:
     command: usr/local/bin/pmqtest
     plugs:
-      - network
       - process-control
   
   ptsematest:
     command: usr/local/bin/ptsematest
     plugs:
-      - network
       - process-control
 
   queuelat:
     command: usr/local/bin/queuelat
     plugs:
-      - network
       - process-control
 
   rt-migrate-test:
     command: usr/local/bin/rt-migrate-test
     plugs:
-      - network
       - process-control
   
   signaltest:
     command: usr/local/bin/signaltest
     plugs:
-      - network
       - process-control
   
   sigwaittest:
     command: usr/local/bin/sigwaittest
     plugs:
-      - network
       - process-control
   
   ssdd:
     command: usr/local/bin/ssdd
     plugs:
-      - network
       - process-control
   
   svsematest:
     command: usr/local/bin/svsematest
     plugs:
-      - network
       - process-control
