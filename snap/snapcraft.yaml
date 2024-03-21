@@ -32,8 +32,9 @@ parts:
     override-build: |
       mkdir -p $CRAFT_PART_INSTALL/usr/local/bin
       DESTDIR=$CRAFT_PART_INSTALL make install
-      rm -rf $CRAFT_PART_INSTALL/usr/bin/hwlatdetect
-      rm -rf $CRAFT_PART_INSTALL/usr/bin/get_cyclictest_snapshot
+
+      rm $CRAFT_PART_INSTALL/usr/local/bin/hwlatdetect
+      rm $CRAFT_PART_INSTALL/usr/local/bin/get_cyclictest_snapshot
       
 # TODO: Add the necessary plugs
 
