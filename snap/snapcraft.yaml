@@ -26,6 +26,7 @@ parts:
       - gcc
       - make
       - python3
+      - libnuma-dev
     stage-packages:
       - libnuma1
 
