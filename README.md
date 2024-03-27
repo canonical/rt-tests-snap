@@ -1,6 +1,10 @@
 
 # Real Time Tests Snap 
 
+[![real-time-tests](https://snapcraft.io/real-time-tests/badge.svg)](https://snapcraft.io/real-time-tests)
+
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/real-time-tests)
+
 This snap is based on the debian package
 [rt-tests](https://wiki.linuxfoundation.org/realtime/documentation/howto/tools/rt-tests)
 and it's meant to be an unofficial version of this package in snap ecosystem,
