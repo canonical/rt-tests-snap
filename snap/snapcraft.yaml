@@ -15,7 +15,7 @@ architectures:
   - build-on: amd64
 
 grade: stable
-confinement: devmode
+confinement: strict
 
 parts:
   rt-tests:
