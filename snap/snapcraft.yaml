@@ -5,9 +5,9 @@ summary: Real time tests for UC22
 description: |
   Based on Real Time Tests debian package rt-tests, maintened by Clark Williams
   and John Kacur. This snap is a collection of programs to test the
-  real-time capabilities of the Linux kernel. It includes programs to
-  measure the latencies of the kernel, to test the scheduler, and to
-  test the real-time capabilities of the kernel.
+  real-time capabilities of the Linux kernel. Programs included: cyclicdeadline,
+  cyclictest, deadline_test, hackbench, oslat, pi_stress, pip_stress, pmqtest,
+  ptsematest, queuelat, rt-migrate-test, signaltest, sigwaittest, ssdd, svsematest.
 
 license: GPL-2.0
 
