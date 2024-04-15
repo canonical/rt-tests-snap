@@ -28,5 +28,5 @@ As this is not avaible in store yet, it's necessary to build it locally.
 ```bash
 snapcraft -v
 
-sudo snap install --dangerous --devmode ./real-time-tests_0.1_amd64.snap
+sudo snap install --dangerous ./real-time-tests_0.1_amd64.snap
 ```
