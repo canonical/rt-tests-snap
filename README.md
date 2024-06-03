@@ -21,7 +21,19 @@ any other package manager besides snapd, such as Ubuntu Core systems.
 
 ## Install
 
-As this is not avaible in store yet, it's necessary to build it locally.
+To install it:
+
+```bash
+sudo snap install real-time-tests
+```
+
+## Configure
+
+It's necessary to connect the interface [process-control](https://snapcraft.io/docs/process-control-interface) to work properlly:
+
+```bash
+sudo snap connect real-time-tests:process-control :process-control
+```
 
 ### Local Build
 
