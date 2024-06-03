@@ -11,9 +11,6 @@ description: |
 
 license: GPL-2.0
 
-architectures:
-  - build-on: amd64
-
 grade: stable
 confinement: strict
 
