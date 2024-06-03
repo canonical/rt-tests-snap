@@ -8,9 +8,6 @@
 This is the snap packaging of
 [rt-tests](https://wiki.linuxfoundation.org/realtime/documentation/howto/tools/rt-tests).
 
-To install this snap, it should be installed in devmode, which requires adding
-the `--devmode` flag during installation. Additionally, please note that this
-snap is only available on the unstable `--edge` channel.
 
 This snap is based on the debian package `rt-tests` and it's meant to be an
 unofficial version of this package, meant to be used in systems that don't have
