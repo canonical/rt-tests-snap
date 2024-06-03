@@ -20,7 +20,7 @@ confinement: strict
 parts:
   rt-tests:
     plugin: nil
-    source-branch: main
+    source-branch: v2.7
     source: https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
     build-packages:
       - gcc
