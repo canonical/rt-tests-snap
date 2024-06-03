@@ -14,6 +14,10 @@ license: GPL-2.0
 grade: stable
 confinement: strict
 
+plugs:
+  process-control:
+    interface: process-control
+
 parts:
   rt-tests:
     plugin: nil
@@ -28,6 +32,7 @@ parts:
       - libnuma1
 
     override-build: |
+
       mkdir -p $CRAFT_PART_INSTALL/usr/local/bin
       DESTDIR=$CRAFT_PART_INSTALL make install
 
@@ -35,77 +40,48 @@ parts:
       rm $CRAFT_PART_INSTALL/usr/local/bin/get_cyclictest_snapshot
       
 apps:
+
   cyclicdeadline:
     command: usr/local/bin/cyclicdeadline
-    plugs:
-      - process-control
   
   cyclictest:
     command: usr/local/bin/cyclictest
-    plugs:
-      - process-control
 
   deadlinetest:
     command: usr/local/bin/deadline_test
-    plugs:
-      - process-control
   
   hackbench:
     command: usr/local/bin/hackbench
-    plugs:
-      - process-control
 
   oslat:
     command: usr/local/bin/oslat
-    plugs:
-      - process-control
 
   pi-stress:
     command: usr/local/bin/pi_stress
-    plugs:
-      - process-control
 
   pip-stress:
     command: usr/local/bin/pip_stress
-    plugs:
-      - process-control
 
   pmqtest:
     command: usr/local/bin/pmqtest
-    plugs:
-      - process-control
   
   ptsematest:
     command: usr/local/bin/ptsematest
-    plugs:
-      - process-control
 
   queuelat:
     command: usr/local/bin/queuelat
-    plugs:
-      - process-control
 
   rt-migrate-test:
     command: usr/local/bin/rt-migrate-test
-    plugs:
-      - process-control
   
   signaltest:
     command: usr/local/bin/signaltest
-    plugs:
-      - process-control
   
   sigwaittest:
     command: usr/local/bin/sigwaittest
-    plugs:
-      - process-control
   
   ssdd:
     command: usr/local/bin/ssdd
-    plugs:
-      - process-control
   
   svsematest:
     command: usr/local/bin/svsematest
-    plugs:
-      - process-control
