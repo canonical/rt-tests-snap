@@ -9,9 +9,6 @@ This is the snap packaging of
 [rt-tests](https://wiki.linuxfoundation.org/realtime/documentation/howto/tools/rt-tests).
 
 
-This snap is based on the debian package `rt-tests` and it's meant to be an
-unofficial version of this package, meant to be used in systems that don't have
-any other package manager besides snapd, such as Ubuntu Core systems.
 
 ## Install
 
