@@ -1,5 +1,5 @@
 name: real-time-tests 
-base: core22 
+base: core24
 version: '0.2' 
 summary: Real time tests for UC22
 description: |
