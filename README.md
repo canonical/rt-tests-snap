@@ -34,5 +34,5 @@ sudo snap connect real-time-tests:process-control :process-control
 ```bash
 snapcraft -v
 
-sudo snap install --dangerous ./real-time-tests_0.1_amd64.snap
+sudo snap install --dangerous *.snap
 ```
