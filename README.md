@@ -20,7 +20,7 @@ sudo snap install real-time-tests
 
 ## Configure
 
-It's necessary to connect the interface [process-control](https://snapcraft.io/docs/process-control-interface) to work properlly:
+It's necessary to connect the [process-control](https://snapcraft.io/docs/process-control-interface) interface to work properly:
 
 ```bash
 sudo snap connect real-time-tests:process-control :process-control
