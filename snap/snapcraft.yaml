@@ -1,7 +1,7 @@
 name: real-time-tests 
 base: core24
 version: '0.2' 
-summary: Real time tests for UC22
+summary: Real time tests for UC24
 description: |
   Based on Real Time Tests debian package rt-tests, maintened by Clark Williams
   and John Kacur. This snap is a collection of programs to test the
@@ -14,6 +14,14 @@ license: GPL-2.0
 grade: stable
 confinement: strict
 
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
+  arm64:
+    build-on: [arm64]
+    build-for: [arm64]
+
 plugs:
   process-control:
     interface: process-control
@@ -21,67 +29,59 @@ plugs:
 parts:
   rt-tests:
     plugin: nil
-    source-branch: v2.7
-    source: https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
-    build-packages:
-      - gcc
-      - make
-      - python3
-      - libnuma-dev
     stage-packages:
       - libnuma1
+      - rt-tests
 
-    override-build: |
-
-      mkdir -p $CRAFT_PART_INSTALL/usr/local/bin
-      DESTDIR=$CRAFT_PART_INSTALL make install
-
-      rm $CRAFT_PART_INSTALL/usr/local/bin/hwlatdetect
-      rm $CRAFT_PART_INSTALL/usr/local/bin/get_cyclictest_snapshot
-      
 apps:
 
   cyclicdeadline:
-    command: usr/local/bin/cyclicdeadline
+    command: usr/bin/cyclicdeadline
   
   cyclictest:
-    command: usr/local/bin/cyclictest
+    command: usr/bin/cyclictest
 
   deadlinetest:
-    command: usr/local/bin/deadline_test
+    command: usr/bin/deadline_test
   
   hackbench:
-    command: usr/local/bin/hackbench
+    command: usr/bin/hackbench
 
   oslat:
-    command: usr/local/bin/oslat
+    command: usr/bin/oslat
 
   pi-stress:
-    command: usr/local/bin/pi_stress
+    command: usr/bin/pi_stress
 
   pip-stress:
-    command: usr/local/bin/pip_stress
+    command: usr/bin/pip_stress
 
   pmqtest:
-    command: usr/local/bin/pmqtest
+    command: usr/bin/pmqtest
   
   ptsematest:
-    command: usr/local/bin/ptsematest
+    command: usr/bin/ptsematest
 
   queuelat:
-    command: usr/local/bin/queuelat
+    command: usr/bin/queuelat
 
   rt-migrate-test:
-    command: usr/local/bin/rt-migrate-test
+    command: usr/bin/rt-migrate-test
   
   signaltest:
-    command: usr/local/bin/signaltest
+    command: usr/bin/signaltest
   
   sigwaittest:
-    command: usr/local/bin/sigwaittest
+    command: usr/bin/sigwaittest
   
   ssdd:
-    command: usr/local/bin/ssdd
+    command: usr/bin/ssdd
   
   svsematest:
-    command: usr/local/bin/svsematest
+    command: usr/bin/svsematest
+
+  hwlatdetect:
+    command: usr/sbin/hwlatdetect
+  
+  get-cyclictest-snapshot:
+    command: usr/sbin/get_cyclictest_snapshot
