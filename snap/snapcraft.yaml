@@ -1,6 +1,6 @@
 name: real-time-tests 
 base: core24
-version: '0.2' 
+version: nil
 summary: Real time tests for UC24
 description: |
   Based on Real Time Tests debian package rt-tests, maintened by Clark Williams
@@ -10,9 +10,9 @@ description: |
   ptsematest, queuelat, rt-migrate-test, signaltest, sigwaittest, ssdd, svsematest.
 
 license: GPL-2.0
-
 grade: stable
 confinement: strict
+adopt-info: rt-tests
 
 platforms:
   amd64:
@@ -29,6 +29,10 @@ plugs:
 parts:
   rt-tests:
     plugin: nil
+    build-packages:
+      - rt-tests
+    override-build: |
+      craftctl set version=$(oslat --version | cut -d ' ' -f 3)
     stage-packages:
       - libnuma1
       - rt-tests
