@@ -1,0 +1,32 @@
+name: Snap Builder
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # Allow manual trigger
+  workflow_dispatch:
+
+env:
+  SNAP_AMD64: real-time-tests_${{ github.run_number}}_amd64.snap
+
+jobs:
+  build:
+    outputs:
+      snap: ${{ steps.snapcraft.outputs.snap }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build snap
+        uses: snapcore/action-build@v1
+        id: snapcraft
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.SNAP_AMD64 }}
+          path: ${{ steps.snapcraft.outputs.snap }}
+          if-no-files-found: error

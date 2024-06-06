@@ -1,0 +1,91 @@
+name: real-time-tests 
+base: core24
+version: nil
+summary: Real time tests for UC24
+description: |
+  Based on Real Time Tests debian package rt-tests, maintened by Clark Williams
+  and John Kacur. This snap is a collection of programs to test the
+  real-time capabilities of the Linux kernel. Programs included: cyclicdeadline,
+  cyclictest, deadline_test, hackbench, oslat, pi_stress, pip_stress, pmqtest,
+  ptsematest, queuelat, rt-migrate-test, signaltest, sigwaittest, ssdd, svsematest.
+
+license: GPL-2.0
+grade: stable
+confinement: strict
+adopt-info: rt-tests
+
+platforms:
+  amd64:
+    build-on: [amd64]
+    build-for: [amd64]
+  arm64:
+    build-on: [arm64]
+    build-for: [arm64]
+
+plugs:
+  process-control:
+    interface: process-control
+
+parts:
+  rt-tests:
+    plugin: nil
+    build-packages:
+      - rt-tests
+    override-build: |
+      craftctl set version=$(oslat --version | cut -d ' ' -f 3)
+    stage-packages:
+      - libnuma1
+      - rt-tests
+
+apps:
+
+  cyclicdeadline:
+    command: usr/bin/cyclicdeadline
+  
+  cyclictest:
+    command: usr/bin/cyclictest
+
+  deadlinetest:
+    command: usr/bin/deadline_test
+  
+  hackbench:
+    command: usr/bin/hackbench
+
+  oslat:
+    command: usr/bin/oslat
+
+  pi-stress:
+    command: usr/bin/pi_stress
+
+  pip-stress:
+    command: usr/bin/pip_stress
+
+  pmqtest:
+    command: usr/bin/pmqtest
+  
+  ptsematest:
+    command: usr/bin/ptsematest
+
+  queuelat:
+    command: usr/bin/queuelat
+
+  rt-migrate-test:
+    command: usr/bin/rt-migrate-test
+  
+  signaltest:
+    command: usr/bin/signaltest
+  
+  sigwaittest:
+    command: usr/bin/sigwaittest
+  
+  ssdd:
+    command: usr/bin/ssdd
+  
+  svsematest:
+    command: usr/bin/svsematest
+
+  hwlatdetect:
+    command: usr/sbin/hwlatdetect
+  
+  get-cyclictest-snapshot:
+    command: usr/sbin/get_cyclictest_snapshot
