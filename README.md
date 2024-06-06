@@ -15,7 +15,7 @@ This is the snap packaging of
 To install it:
 
 ```bash
-sudo snap install real-time-tests
+sudo snap install rt-tests
 ```
 
 ## Configure
@@ -23,7 +23,7 @@ sudo snap install real-time-tests
 It's necessary to connect the [process-control](https://snapcraft.io/docs/process-control-interface) interface to work properly:
 
 ```bash
-sudo snap connect real-time-tests:process-control :process-control
+sudo snap connect rt-tests:process-control :process-control
 ```
 
 ### Local Build
