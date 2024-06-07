@@ -1,13 +1,15 @@
 name: rt-tests
 base: core24
 version: nil
-summary: Real time tests for UC24
+summary: Real-time test suite
 description: |
-  Based on Real Time Tests debian package rt-tests, maintened by Clark Williams
-  and John Kacur. This snap is a collection of programs to test the
-  real-time capabilities of the Linux kernel. Programs included: cyclicdeadline,
-  cyclictest, deadline_test, hackbench, oslat, pi_stress, pip_stress, pmqtest,
+  rt-tests is a set of programs to test various real time Linux features. 
+  
+  The programs include: 
+  cyclicdeadline, cyclictest, deadline_test, hackbench, oslat, pi_stress, pip_stress, pmqtest,
   ptsematest, queuelat, rt-migrate-test, signaltest, sigwaittest, ssdd, svsematest.
+
+  For usage instructions, refer to:  https://github.com/canonical/rt-tests-snap
 
 license: GPL-2.0-or-later AND LGPL-2.1-or-later
 grade: stable
