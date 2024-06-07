@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 env:
-  SNAP_AMD64: real-time-tests_${{ github.run_number}}_amd64.snap
+  SNAP_AMD64: rt-tests_${{ github.run_number}}_amd64.snap
 
 jobs:
   build:
