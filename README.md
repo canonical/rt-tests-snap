@@ -7,7 +7,22 @@ This is a snap packaging of
 a set of programs to test various real-time Linux features. 
 
 The programs include: 
-cyclicdeadline, cyclictest, deadline_test, hackbench, oslat, pi_stress, pip_stress, pmqtest, ptsematest, queuelat, rt-migrate-test, signaltest, sigwaittest, ssdd, svsematest.
+- [cyclicdeadline](https://manpages.ubuntu.com/manpages/noble/man8/cyclicdeadline.8.html)
+- [cyclictest](https://manpages.ubuntu.com/manpages/noble/en/man8/cyclictest.8.html) 
+- [deadline_test](https://manpages.ubuntu.com/manpages/noble/man8/deadline_test.8.html)
+- [hackbench](https://manpages.ubuntu.com/manpages/noble/man8/hackbench.8.html)
+- [hwlatdetect](https://manpages.ubuntu.com/manpages/noble/en/man8/hwlatdetect.8.html)
+- [oslat](https://manpages.ubuntu.com/manpages/noble/en/man8/oslat.8.html)
+- [pi_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pi_stress.8.html) 
+- [pip_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pip_stress.8.html)
+- [pmqtest](https://manpages.ubuntu.com/manpages/noble/en/man8/pmqtest.8.html)
+- [ptsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/ptsematest.8.html)
+- [queuelat](https://manpages.ubuntu.com/manpages/noble/en/man8/queuelat.8.html)
+- [rt-migrate-test](https://manpages.ubuntu.com/manpages/noble/en/man8/rt-migrate-test.8.html)
+- [signaltest](https://manpages.ubuntu.com/manpages/noble/en/man8/signaltest.8.html)
+- [sigwaittest](https://manpages.ubuntu.com/manpages/noble/en/man8/sigwaittest.8.html)
+- [ssdd](https://manpages.ubuntu.com/manpages/noble/en/man8/ssdd.8.html) 
+- [svsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/svsematest.8.html)
 
 
 ## Install
