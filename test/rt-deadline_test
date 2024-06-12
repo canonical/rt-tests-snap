@@ -1,0 +1,30 @@
+#!/bin/bash
+
+. common
+
+# Skipping this because of: https://github.com/canonical/rt-tests-snap/issues/8
+skip_test
+
+test_init $(basename "$0")
+
+catch deadline_test -t $(nproc) -s 3500 -i 50
+
+app_exit_check $?
+
+# Check program output behavior
+app_regex=(
+	'\d+\s*test\s*loops\s*took\s*\d+us\s*total\s*\(\d+\s*internal\)' \
+	'calculated loops for \d+us=\d+' \
+	'New calculated loops for \d+us=\d+' \
+	'Diff from last calculation: -?\d+ loops'
+	'deadline thread \d+' \
+	'thread\[\d+\] runtime=\d+us deadline=\d+ loops=\d+' \
+	'missed deadlines\s*=\s*\d+' \
+	'missed periods\s*=\s*\d+' \
+	'Total adjustments\s*=\s*\d+\s*us' \
+	'deadline\s*:\s*\d+\s*us'
+	)
+
+check_output || test_failed
+
+test_success

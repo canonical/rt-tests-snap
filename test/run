@@ -1,0 +1,32 @@
+#!/bin/bash
+
+. common
+
+check_root
+
+passed=() failed=() skiped=()
+
+check_failure(){
+	if [ $1 -eq $SKIP_EXIT_CODE ]; then
+		skiped=(${skiped[@]} $test)
+		return
+	fi
+	failed=(${failed[@]} $test)	
+}
+
+
+[ $# -gt 0 ] && tests=($@) || tests=(rt-*[^_])
+
+for test in "${tests[@]}"; do
+	printc "NC" "$test ($[${#passed[@]} + ${#failed[@]} + 1]/${#tests[@]})"
+	./$test && passed=(${passed[@]} $test) || check_failure $?
+	echo
+done
+
+printc "CYAN" "SUMMARY:"
+printc "CYAN" "  SKIPPED ${#skiped[@]}  (${skiped[@]}) "
+printc "CYAN" "  PASSED  ${#passed[@]}"
+printc "CYAN" "  FAILED  ${#failed[@]}  (${failed[@]})"
+
+[ ${#failed} -eq 0 ]
+

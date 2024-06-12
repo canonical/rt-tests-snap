@@ -6,7 +6,7 @@ description: |
   rt-tests is a set of programs to test various real time Linux features. 
   
   The programs include: 
-  cyclicdeadline, cyclictest, deadline_test, hackbench, oslat, pi_stress, pip_stress, pmqtest,
+  cyclicdeadline, cyclictest, deadline_test, hackbench, hwlatdetect, oslat, pi_stress, pip_stress, pmqtest,
   ptsematest, queuelat, rt-migrate-test, signaltest, sigwaittest, ssdd, svsematest.
 
   For usage instructions, refer to:  https://github.com/canonical/rt-tests-snap

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. common
+
+test_init $(basename "$0")
+
+catch pi_stress --quiet --duration=5s
+
+app_exit_check $?
+
+# Check program output behavior
+app_regex=(
+	'Total inversion performed:\s*\d+' \
+	'Test Duration: 0 days, 0 hours, 0 minutes, \d+ seconds'
+	)
+
+check_output || test_failed
+
+test_success

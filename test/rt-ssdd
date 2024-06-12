@@ -1,0 +1,21 @@
+#!/bin/bash
+
+. common
+
+# Skipping because of https://github.com/canonical/rt-tests-snap/issues/12
+skip_test
+
+test_init $(basename "$0")
+
+catch ssdd --iters=10 --quiet 
+
+app_exit_check $?
+
+# Check program output behavior
+app_regex=(
+	'All tests PASSED.' 
+	)
+
+check_output || test_failed
+
+test_success

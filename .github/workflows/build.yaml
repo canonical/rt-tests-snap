@@ -1,4 +1,4 @@
-name: Snap Builder
+name: Snap build and test
 
 on:
   push:
@@ -30,3 +30,49 @@ jobs:
           name: ${{ env.SNAP_AMD64 }}
           path: ${{ steps.snapcraft.outputs.snap }}
           if-no-files-found: error
+
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.SNAP_AMD64 }}
+
+      - name: Install snap
+        run: |
+          sudo snap install --dangerous *.snap
+
+      - name: Connectins snap interface
+        run: |
+          sudo snap connect rt-tests:process-control :process-control
+
+      - name: Creating snap alias
+        run: |
+          sudo snap alias rt-tests.cyclictest cyclictest
+          sudo snap alias rt-tests.cyclicdeadline cyclicdeadline 
+          sudo snap alias rt-tests.deadlinetest deadline_test
+          sudo snap alias rt-tests.get-cyclictest-snapshot get-cyclictest-snapshot
+          sudo snap alias rt-tests.hackbench hackbench
+          sudo snap alias rt-tests.hwlatdetect hwlatdetect
+          sudo snap alias rt-tests.oslat oslat
+          sudo snap alias rt-tests.pip-stress pip_stress
+          sudo snap alias rt-tests.pi-stress pi_stress
+          sudo snap alias rt-tests.pmqtest pmqtest
+          sudo snap alias rt-tests.ptsematest ptsematest
+          sudo snap alias rt-tests.queuelat queuelat
+          sudo snap alias rt-tests.rt-migrate-test rt-migrate-test
+          sudo snap alias rt-tests.signaltest signaltest
+          sudo snap alias rt-tests.sigwaittest sigwaittest
+          sudo snap alias rt-tests.ssdd ssdd
+          sudo snap alias rt-tests.svsematest svsematest
+
+      - name: Run tests for rt-test applications
+        working-directory: test
+        run: |
+          sudo ./run
+ 

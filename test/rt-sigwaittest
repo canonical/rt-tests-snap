@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. common
+
+test_init $(basename "$0")
+
+catch sigwaittest --loops=10 --threads=$(nproc) --prio=80 
+
+app_exit_check $?
+
+# Check program output behavior
+app_regex=(
+	'#\d+:\s*ID\d+,\s*P\d+,\s*CPU\d+,\s*I\d+;\s*#\d+:\s*ID\d+,\s*P\d+,\sCPU\d+,\sCycles\s*\d+'
+	'#\d+\s*->\s*#\d+,\sMin\s*\d+,\s*Cur\s*\d+,\s*Avg\s*\d+,\sMax\s*\d+'
+	)
+
+check_output || test_failed
+
+test_success
