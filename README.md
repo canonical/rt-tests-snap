@@ -42,7 +42,7 @@ sudo snap connect rt-tests:process-control :process-control
 ```
 
 ## Use
-The program executables are available within the snap's namespace.
+The program commands are available within the snap's namespace.
 For example, the command for `cyclictest` is `rt-tests.cyclictest`:
 
 On a Raspberry Pi 5 running Real-time Ubuntu 24.04:
@@ -59,7 +59,7 @@ T: 3 ( 3722) P:80 I:200 C:  99875 Min:      3 Act:    6 Avg:    5 Max:      18
 ```
 
 ### Add aliases
-You can add [aliases](https://snapcraft.io/docs/commands-and-aliases) to run the application commands without the namespace. For example:
+You can add [aliases](https://snapcraft.io/docs/commands-and-aliases) to run the program commands without the namespace. For example:
 ```console
 $ sudo snap alias rt-tests.cyclictest cyclictest
 Added:
@@ -69,7 +69,7 @@ $ which cyclictest
 /snap/bin/cyclictest
 ```
 
-Run the following commands to add aliases for all the applications, effectively making them available under the same names as if they were installed using the Debian package:
+Run the following commands to add aliases for all the programs, effectively making them available under the same names as if they were installed using the Debian package:
 
 ```bash
 
