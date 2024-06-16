@@ -58,8 +58,8 @@ T: 2 ( 3721) P:80 I:200 C:  99919 Min:      3 Act:    6 Avg:    5 Max:      22
 T: 3 ( 3722) P:80 I:200 C:  99875 Min:      3 Act:    6 Avg:    5 Max:      18
 ```
 
-### Add an alias
-You can add [aliases](https://snapcraft.io/docs/commands-and-aliases) to run the commands without the namespace. For example:
+### Add aliases
+You can add [aliases](https://snapcraft.io/docs/commands-and-aliases) to run the application commands without the namespace. For example:
 ```console
 $ sudo snap alias rt-tests.cyclictest cyclictest
 Added:
@@ -67,6 +67,12 @@ Added:
 
 $ which cyclictest
 /snap/bin/cyclictest
+```
+
+Run the following commands to add aliases for all the applications, effectively making them available under the same names as if they were installed using the Debian package:
+
+```bash
+
 ```
 
 ### Local Build
