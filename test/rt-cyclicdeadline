@@ -1,0 +1,24 @@
+#!/bin/bash
+
+. common
+
+test_init $(basename "$0")
+
+catch cyclicdeadline --quiet --interval=3500 --duration=1s --threads=$(nproc)
+
+app_exit_check $?
+
+# Check program output behavior
+final_table='T:\s*\d+\s*\(\s*\d+\s*\)\s*I:\d+\s*C:\s*\d+\s*Min:\s*\d+\s*Act:\s*\d+\s*Avg:\s*\d+\s*Max:\s*\d+'
+app_regex=(
+	'Using all CPUS' \
+	'interval: 2100:3500' \
+	'deadline thread \d+' \
+	'thread\[\d+\]\s*runtime=\d+us\s*deadline=\d+us' \
+	$final_table
+	)
+
+check_output || test_failed
+
+test_success
+

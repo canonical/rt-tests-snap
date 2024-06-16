@@ -1,0 +1,18 @@
+#!/bin/bash
+
+. common
+
+test_init $(basename "$0")
+
+catch pip_stress
+
+app_exit_check $?
+
+# Check program output behavior
+app_regex=(
+	'Successfully used priority inheritance to handle an inversion'
+	)
+
+check_output || test_failed
+
+test_success

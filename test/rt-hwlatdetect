@@ -1,0 +1,22 @@
+#!/bin/bash
+
+. common
+
+# Being skipped because https://github.com/canonical/rt-tests-snap/issues/11
+skip_test
+
+test_init $(basename "$0")
+
+catch hwlatdetect --duration 5s
+
+app_exit_check $?
+
+# Check program output behavior
+app_regex=(
+	'hwlatdetect:  test duration 5 seconds' \
+	'detector: tracer'
+	)
+
+check_output || test_failed
+
+test_success

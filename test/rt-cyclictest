@@ -1,0 +1,18 @@
+#!/bin/bash
+
+. common
+
+test_init $(basename "$0")
+
+catch cyclictest --mlockall --smp --priority=80 --interval=200 --distance=0 --quiet --loops=10
+
+app_exit_check $?
+
+# Check program output behavior
+app_regex=(
+	'T:\s*\d+\s*\(\s*\d+\)\s*P:80\s*I:200\s*C:\s*\d+\s*Min:\s*\d+\s*Act:\s*\d+\s*Avg:\s*\d+\s*Max:\s*\d+'
+	)
+
+check_output || test_failed
+
+test_success

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+. common
+
+test_init $(basename "$0")
+
+catch ptsematest --smp --prio=80 --loops=10 --quiet 
+
+app_exit_check $?
+
+# Check program output behavior
+app_regex=(
+	'#\d+:\s*ID\d+,\sP80,\s*CPU\d+,\s*I\d+;\s*#\d+:\s*ID\d+,\sP80,\s*CPU\d+,\sCycles\s*\d+' \
+	'#\d+\s*->\s*#\d+,\s*Min\s*\d+,\s*Cur\s*\d+,\s*Avg\s*\d+,\sMax\s*\d+'
+        )
+
+check_output || test_failed
+
+test_success

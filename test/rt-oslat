@@ -1,0 +1,35 @@
+#!/bin/bash
+
+. common
+
+test_init $(basename "$0")
+
+catch oslat
+
+app_exit_check $?
+
+# Check program output behavior
+app_regex=(
+	'oslat V\s*\d+.\d+' \
+	'Total runtime:\s*1 seconds' \
+	'Thread priority:\s*default' \
+	'CPU list:\s*all' \
+	'CPU for main thread:\s*0' \
+	'Workload:\s*no' \
+	'Workload mem:\s*0 \(KiB\)' \
+	'Preheat cores:\s*\d+' \
+	'Pre-heat for 1 seconds...' \
+	'Test starts...' \
+	'Test completed.' \
+	'Core:\s*' \
+	'Counter Freq:\s*' \
+	'Minimum:\s*' \
+	'Maximum:\s*' \
+	'Max-Min:\s*' \
+	'Duration:\s*'
+	)
+
+check_output || test_failed
+
+test_success
+
