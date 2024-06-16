@@ -9,12 +9,12 @@ a set of programs to test various real-time Linux features.
 The programs include: 
 - [cyclicdeadline](https://manpages.ubuntu.com/manpages/noble/man8/cyclicdeadline.8.html)
 - [cyclictest](https://manpages.ubuntu.com/manpages/noble/en/man8/cyclictest.8.html) 
-- [deadline_test](https://manpages.ubuntu.com/manpages/noble/man8/deadline_test.8.html)
+- [deadline_test](https://manpages.ubuntu.com/manpages/noble/man8/deadline_test.8.html) as `deadline-test` in this snap
 - [hackbench](https://manpages.ubuntu.com/manpages/noble/man8/hackbench.8.html)
 - [hwlatdetect](https://manpages.ubuntu.com/manpages/noble/en/man8/hwlatdetect.8.html)
 - [oslat](https://manpages.ubuntu.com/manpages/noble/en/man8/oslat.8.html)
-- [pi_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pi_stress.8.html) 
-- [pip_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pip_stress.8.html)
+- [pi_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pi_stress.8.html) as `pi-stress` in this snap
+- [pip_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pip_stress.8.html) as `pip-stress` in this snap
 - [pmqtest](https://manpages.ubuntu.com/manpages/noble/en/man8/pmqtest.8.html)
 - [ptsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/ptsematest.8.html)
 - [queuelat](https://manpages.ubuntu.com/manpages/noble/en/man8/queuelat.8.html)
@@ -42,7 +42,7 @@ sudo snap connect rt-tests:process-control :process-control
 ```
 
 ## Use
-The program executables are available with an alias.
+The program executables are available within the snap's namespace.
 For example, the command for `cyclictest` is `rt-tests.cyclictest`:
 
 On a Raspberry Pi 5 running Real-time Ubuntu 24.04:
