@@ -47,7 +47,7 @@ apps:
   cyclictest:
     command: usr/bin/cyclictest
 
-  deadlinetest:
+  deadline-test:
     command: usr/bin/deadline_test
   
   hackbench:

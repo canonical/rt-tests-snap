@@ -9,12 +9,12 @@ a set of programs to test various real-time Linux features.
 The programs include: 
 - [cyclicdeadline](https://manpages.ubuntu.com/manpages/noble/man8/cyclicdeadline.8.html)
 - [cyclictest](https://manpages.ubuntu.com/manpages/noble/en/man8/cyclictest.8.html) 
-- [deadline_test](https://manpages.ubuntu.com/manpages/noble/man8/deadline_test.8.html)
+- [deadline_test](https://manpages.ubuntu.com/manpages/noble/man8/deadline_test.8.html) as `deadline-test` in this snap
 - [hackbench](https://manpages.ubuntu.com/manpages/noble/man8/hackbench.8.html)
 - [hwlatdetect](https://manpages.ubuntu.com/manpages/noble/en/man8/hwlatdetect.8.html)
 - [oslat](https://manpages.ubuntu.com/manpages/noble/en/man8/oslat.8.html)
-- [pi_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pi_stress.8.html) 
-- [pip_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pip_stress.8.html)
+- [pi_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pi_stress.8.html) as `pi-stress` in this snap
+- [pip_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pip_stress.8.html) as `pip-stress` in this snap
 - [pmqtest](https://manpages.ubuntu.com/manpages/noble/en/man8/pmqtest.8.html)
 - [ptsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/ptsematest.8.html)
 - [queuelat](https://manpages.ubuntu.com/manpages/noble/en/man8/queuelat.8.html)
@@ -42,7 +42,7 @@ sudo snap connect rt-tests:process-control :process-control
 ```
 
 ## Use
-The program executables are available with an alias.
+The program commands are available within the snap's namespace.
 For example, the command for `cyclictest` is `rt-tests.cyclictest`:
 
 On a Raspberry Pi 5 running Real-time Ubuntu 24.04:
@@ -58,8 +58,8 @@ T: 2 ( 3721) P:80 I:200 C:  99919 Min:      3 Act:    6 Avg:    5 Max:      22
 T: 3 ( 3722) P:80 I:200 C:  99875 Min:      3 Act:    6 Avg:    5 Max:      18
 ```
 
-### Add an alias
-You can add [aliases](https://snapcraft.io/docs/commands-and-aliases) to run the commands without the namespace. For example:
+### Add aliases
+You can add [aliases](https://snapcraft.io/docs/commands-and-aliases) to run the program commands without the namespace. For example:
 ```console
 $ sudo snap alias rt-tests.cyclictest cyclictest
 Added:
@@ -67,6 +67,29 @@ Added:
 
 $ which cyclictest
 /snap/bin/cyclictest
+```
+
+Run the following commands to add aliases for all the programs, effectively making them available under the same names as if they were installed using the Debian package:
+
+```bash
+
+sudo snap alias rt-tests.cyclictest cyclictest
+sudo snap alias rt-tests.cyclicdeadline cyclicdeadline 
+sudo snap alias rt-tests.deadline-test deadline_test
+sudo snap alias rt-tests.get-cyclictest-snapshot get-cyclictest-snapshot
+sudo snap alias rt-tests.hackbench hackbench
+sudo snap alias rt-tests.hwlatdetect hwlatdetect
+sudo snap alias rt-tests.oslat oslat
+sudo snap alias rt-tests.pip-stress pip_stress
+sudo snap alias rt-tests.pi-stress pi_stress
+sudo snap alias rt-tests.pmqtest pmqtest
+sudo snap alias rt-tests.ptsematest ptsematest
+sudo snap alias rt-tests.queuelat queuelat
+sudo snap alias rt-tests.rt-migrate-test rt-migrate-test
+sudo snap alias rt-tests.signaltest signaltest
+sudo snap alias rt-tests.sigwaittest sigwaittest
+sudo snap alias rt-tests.ssdd ssdd
+sudo snap alias rt-tests.svsematest svsematest
 ```
 
 ### Local Build
