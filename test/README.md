@@ -14,7 +14,8 @@ To run the tests, execute the `run` script with root privileges:
 sudo ./run
 ```
 
-For testing the snap, it’s necessary to remove the Debian package (if installed) and alias the snapped applications beforehand:
+For testing the snap, it’s necessary to remove the Debian package (if installed)
+and alias the snapped applications beforehand:
 
 ```bash
 sudo apt remove rt-tests
