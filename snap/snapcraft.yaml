@@ -25,6 +25,10 @@ platforms:
     build-for: [arm64]
 
 plugs:
+  scheduler-debugfs:
+    interface: system-files
+    write:
+      - /sys/kernel/debug/sched/features
   process-control:
     interface: process-control
 
@@ -49,6 +53,7 @@ apps:
 
   deadline-test:
     command: usr/bin/deadline_test
+    plugs: [ mount-observe, system-trace, scheduler-debugfs ]
   
   hackbench:
     command: usr/bin/hackbench

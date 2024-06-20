@@ -2,9 +2,6 @@
 
 . common
 
-# Skipping this because of: https://github.com/canonical/rt-tests-snap/issues/8
-skip_test
-
 test_init $(basename "$0")
 
 catch deadline_test -t $(nproc) -s 3500 -i 50
@@ -18,7 +15,6 @@ app_regex=(
 	'New calculated loops for \d+us=\d+' \
 	'Diff from last calculation: -?\d+ loops'
 	'deadline thread \d+' \
-	'thread\[\d+\] runtime=\d+us deadline=\d+ loops=\d+' \
 	'missed deadlines\s*=\s*\d+' \
 	'missed periods\s*=\s*\d+' \
 	'Total adjustments\s*=\s*\d+\s*us' \
