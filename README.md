@@ -35,10 +35,12 @@ sudo snap install rt-tests
 
 ## Configure
 
-It's necessary to connect the [process-control](https://snapcraft.io/docs/process-control-interface) interface to work properly:
+It's necessary to connect the [process-control](https://snapcraft.io/docs/process-control-interface), [mount-observe](https://snapcraft.io/docs/mount-observe-interface) and [system-trace](https://snapcraft.io/docs/system-trace-interface) interfaces to work properly:
 
 ```bash
 sudo snap connect rt-tests:process-control :process-control
+sudo snap connect rt-tests:mount-observe :mount-observe
+sudo snap connect rt-tests:system-trace :system-trace
 ```
 
 ## Use

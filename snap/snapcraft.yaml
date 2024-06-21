@@ -43,6 +43,7 @@ apps:
 
   cyclicdeadline:
     command: usr/bin/cyclicdeadline
+    plugs: [ mount-observe, system-trace ]
   
   cyclictest:
     command: usr/bin/cyclictest
