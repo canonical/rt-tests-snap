@@ -36,7 +36,6 @@ parts:
     override-build: |
       craftctl set version=$(oslat --version | cut -d ' ' -f 3)
     stage-packages:
-      - libnuma1
       - rt-tests
 
 apps:
