@@ -24,9 +24,19 @@ platforms:
     build-on: [arm64]
     build-for: [arm64]
 
+slots:
+  custom-cpu-latency-dev:
+    interface: custom-device
+    custom-device: cpu-dma-latency
+    devices:
+      - /dev/cpu_dma_latency
+
 plugs:
   process-control:
     interface: process-control
+  custom-cpu-latency:
+    interface: custom-device
+    custom-device: cpu-dma-latency
 
 parts:
   rt-tests:
@@ -88,6 +98,7 @@ apps:
 
   hwlatdetect:
     command: usr/sbin/hwlatdetect
+    plugs: [ mount-observe, system-trace, custom-cpu-latency ]
   
   get-cyclictest-snapshot:
     command: usr/sbin/get_cyclictest_snapshot
