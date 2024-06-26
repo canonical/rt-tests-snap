@@ -40,7 +40,7 @@ It's necessary to connect:
 - [mount-observe](https://snapcraft.io/docs/mount-observe-interface) interface;
 - [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
 - `scheduler-debugfs` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
-- The `custom-cpu-latency` plug into the `custom-cpu-latency-dev`.
+- The `custom-cpu-latency` plug into the `custom-cpu-latency-dev` slot using the [custom-device](https://snapcraft.io/docs/custom-device-interface).
 
 ```bash
 sudo snap connect rt-tests:process-control
