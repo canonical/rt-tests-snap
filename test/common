@@ -66,8 +66,7 @@ partial_success(){
 }
 
 app_exit_check(){
-	[$1 -ne 0] && nonzero_fail
-	partial_success
+	[ $1 -ne 0 ] && nonzero_fail || partial_success
 }
 
 test_success() {
