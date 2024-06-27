@@ -32,6 +32,10 @@ slots:
       - /dev/cpu_dma_latency
 
 plugs:
+  scheduler-debugfs:
+    interface: system-files
+    write:
+      - /sys/kernel/debug/sched/features
   process-control:
     interface: process-control
   custom-cpu-latency:
@@ -46,19 +50,20 @@ parts:
     override-build: |
       craftctl set version=$(oslat --version | cut -d ' ' -f 3)
     stage-packages:
-      - libnuma1
       - rt-tests
 
 apps:
 
   cyclicdeadline:
     command: usr/bin/cyclicdeadline
+    plugs: [ mount-observe, system-trace ]
   
   cyclictest:
     command: usr/bin/cyclictest
 
   deadline-test:
     command: usr/bin/deadline_test
+    plugs: [ mount-observe, system-trace, scheduler-debugfs ]
   
   hackbench:
     command: usr/bin/hackbench

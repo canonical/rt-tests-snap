@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, fix-confinement ]
   # Allow manual trigger
   workflow_dispatch:
 
@@ -49,10 +49,12 @@ jobs:
 
       - name: Connectins snap interface
         run: |
-          sudo snap connect rt-tests:process-control :process-control
-          sudo snap connect rt-tests:mount-observe :mount-observe
-          sudo snap connect rt-tests:system-trace :system-trace
-          sudo snap connect rt-tests:cpu-latency-dev rt-tests:dma-latency-dev
+          sudo snap connect rt-tests:process-control
+          sudo snap connect rt-tests:mount-observe
+          sudo snap connect rt-tests:system-trace
+          sudo snap connect rt-tests:scheduler-debugfs
+          sudo snap connect rt-tests:custom-cpu-latency rt-tests:custom-cpu-latency-dev
+
 
       - name: Creating snap aliases
         working-directory: test
