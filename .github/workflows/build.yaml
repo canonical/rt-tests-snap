@@ -53,7 +53,7 @@ jobs:
           sudo snap connect rt-tests:mount-observe
           sudo snap connect rt-tests:system-trace
           sudo snap connect rt-tests:scheduler-debugfs
-          sudo snap connect rt-tests:cpu-latency-dev rt-tests:dma-latency-dev
+          sudo snap connect rt-tests:custom-cpu-latency rt-tests:custom-cpu-latency-dev
 
 
       - name: Creating snap aliases
