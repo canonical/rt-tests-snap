@@ -35,10 +35,11 @@ sudo snap install rt-tests
 
 ## Configure
 
-It's necessary to connect the [process-control](https://snapcraft.io/docs/process-control-interface) interface to work properly:
 
+It is necessary to connect the [process-control](https://snapcraft.io/docs/process-control-interface) and [docker-support](https://snapcraft.io/docs/docker-support-interface) interfaces. The docker-support interface provides access to the [ptrace syscall](https://man7.org/linux/man-pages/man2/ptrace.2.html) needed by `ssdd`:
 ```bash
-sudo snap connect rt-tests:process-control :process-control
+sudo snap connect rt-tests:process-control
+sudo snap connect rt-tests:docker-support
 ```
 
 ## Use

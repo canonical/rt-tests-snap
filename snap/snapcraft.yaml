@@ -82,6 +82,7 @@ apps:
   
   ssdd:
     command: usr/bin/ssdd
+    plugs: [ docker-support ]
   
   svsematest:
     command: usr/bin/svsematest
