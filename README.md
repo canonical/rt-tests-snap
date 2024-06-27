@@ -112,7 +112,7 @@ sudo snap install --dangerous *.snap
 
 Some well-known issues:
 
-- `oslat` won't work on Raspberry Pi due to the lack of NUMA support on the SoC. Refer to [#4](https://github.com/canonical/rt-tests-snap/issues/4).
+- `oslat` won't work on Raspberry Pis due to the lack of NUMA support on the SoC. Refer to [#4](https://github.com/canonical/rt-tests-snap/issues/4).
 
 - `ssdd` only works if rt-tests is installed in devmode [devmode][devmode-url]. Refer to [#12](https://github.com/canonical/rt-tests-snap/issues/12).
 
