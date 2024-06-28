@@ -24,6 +24,10 @@ The programs include:
 - [ssdd](https://manpages.ubuntu.com/manpages/noble/en/man8/ssdd.8.html) 
 - [svsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/svsematest.8.html)
 
+## Known Issues
+
+This snap is under development.
+Refer [here](https://github.com/canonical/rt-tests-snap/issues?q=is%3Aissue+is%3Aopen+label%3Abug) for the list of known issues.
 
 ## Install
 
@@ -107,7 +111,3 @@ Then, install it in [dangerous mode](https://snapcraft.io/docs/install-modes#hea
 ```bash
 sudo snap install --dangerous *.snap
 ```
-
-### Known Issues
-
-[Some well-known issues](https://github.com/canonical/rt-tests-snap/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
