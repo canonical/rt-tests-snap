@@ -49,9 +49,9 @@ jobs:
 
       - name: Connectins snap interface
         run: |
-          sudo snap connect rt-tests:process-control :process-control
-          sudo snap connect rt-tests:mount-observe :mount-observe
-          sudo snap connect rt-tests:system-trace :system-trace
+          sudo snap connect rt-tests:process-control
+          sudo snap connect rt-tests:mount-observe
+          sudo snap connect rt-tests:system-trace
 
       - name: Creating snap aliases
         working-directory: test
