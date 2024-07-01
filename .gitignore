@@ -9,3 +9,6 @@ stage/
 
 # Snapcraft snap files
 *.snap
+
+# Unsquashed snap filesystem
+squashfs-root/
