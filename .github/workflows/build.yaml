@@ -52,7 +52,7 @@ jobs:
           sudo snap connect rt-tests:process-control
           sudo snap connect rt-tests:mount-observe
           sudo snap connect rt-tests:system-trace
-          sudo snap connect rt-tests:scheduler-debugfs
+          sudo snap connect rt-tests:sys-kernel-debug-sched-features
           sudo snap connect rt-tests:custom-cpu-latency rt-tests:custom-cpu-latency-dev
 
 
