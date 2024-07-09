@@ -49,6 +49,7 @@ sudo snap connect rt-tests:system-trace
 sudo snap connect rt-tests:sys-kernel-debug-sched-features
 sudo snap connect rt-tests:cpu-control
 ```
+> **_NOTE:_** The `cpu-control` interface gets auto-connected when installed from the store.
 
 ## Use
 The program commands are available within the snap's namespace.
