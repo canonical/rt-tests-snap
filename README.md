@@ -39,16 +39,17 @@ It's necessary to connect:
 - [process-control](https://snapcraft.io/docs/process-control-interface) interface;
 - [mount-observe](https://snapcraft.io/docs/mount-observe-interface) interface;
 - [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
+- [cpu-control](https://snapcraft.io/docs/cpu-control-interface) interface;
 - `sys-kernel-debug-sched-features` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
-- The `custom-cpu-latency` plug into the `custom-cpu-latency-dev` slot using the [custom-device](https://snapcraft.io/docs/custom-device-interface).
 
 ```bash
 sudo snap connect rt-tests:process-control
 sudo snap connect rt-tests:mount-observe
 sudo snap connect rt-tests:system-trace
 sudo snap connect rt-tests:sys-kernel-debug-sched-features
-sudo snap connect rt-tests:custom-cpu-latency rt-tests:custom-cpu-latency-dev
+sudo snap connect rt-tests:cpu-control
 ```
+> **_NOTE:_** The `cpu-control` interface gets auto-connected when installed from the store.
 
 ## Use
 The program commands are available within the snap's namespace.

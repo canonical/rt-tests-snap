@@ -24,13 +24,6 @@ platforms:
     build-on: [arm64]
     build-for: [arm64]
 
-slots:
-  custom-cpu-latency-dev:
-    interface: custom-device
-    custom-device: cpu-dma-latency
-    devices:
-      - /dev/cpu_dma_latency
-
 plugs:
   sys-kernel-debug-sched-features:
     interface: system-files
@@ -38,9 +31,6 @@ plugs:
       - /sys/kernel/debug/sched/features
   process-control:
     interface: process-control
-  custom-cpu-latency:
-    interface: custom-device
-    custom-device: cpu-dma-latency
 
 parts:
   rt-tests:
@@ -56,7 +46,7 @@ apps:
 
   cyclicdeadline:
     command: usr/bin/cyclicdeadline
-    plugs: [ mount-observe, system-trace ]
+    plugs: [ mount-observe, system-trace, cpu-control ]
   
   cyclictest:
     command: usr/bin/cyclictest
@@ -103,7 +93,7 @@ apps:
 
   hwlatdetect:
     command: usr/sbin/hwlatdetect
-    plugs: [ mount-observe, system-trace, custom-cpu-latency ]
+    plugs: [ mount-observe, system-trace, cpu-control ]
   
   get-cyclictest-snapshot:
     command: usr/sbin/get_cyclictest_snapshot
