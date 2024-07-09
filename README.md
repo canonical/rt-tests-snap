@@ -24,6 +24,10 @@ The programs include:
 - [ssdd](https://manpages.ubuntu.com/manpages/noble/en/man8/ssdd.8.html) 
 - [svsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/svsematest.8.html)
 
+## Known Issues
+
+This snap is under development.
+Refer [here](https://github.com/canonical/rt-tests-snap/issues?q=is%3Aissue+is%3Aopen+label%3Abug) for the list of known issues.
 
 ## Install
 
@@ -41,6 +45,7 @@ It's necessary to connect:
 - [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
 - [cpu-control](https://snapcraft.io/docs/cpu-control-interface) interface;
 - `sys-kernel-debug-sched-features` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
+
 
 ```bash
 sudo snap connect rt-tests:process-control
