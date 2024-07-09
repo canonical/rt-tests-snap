@@ -39,14 +39,14 @@ It's necessary to connect:
 - [process-control](https://snapcraft.io/docs/process-control-interface) interface;
 - [mount-observe](https://snapcraft.io/docs/mount-observe-interface) interface;
 - [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
-- `scheduler-debugfs` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
+- `sys-kernel-debug-sched-features` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
 - The `custom-cpu-latency` plug into the `custom-cpu-latency-dev` slot using the [custom-device](https://snapcraft.io/docs/custom-device-interface).
 
 ```bash
 sudo snap connect rt-tests:process-control
 sudo snap connect rt-tests:mount-observe
 sudo snap connect rt-tests:system-trace
-sudo snap connect rt-tests:scheduler-debugfs
+sudo snap connect rt-tests:sys-kernel-debug-sched-features
 sudo snap connect rt-tests:custom-cpu-latency rt-tests:custom-cpu-latency-dev
 ```
 
