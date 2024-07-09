@@ -1,10 +1,10 @@
 ## Summary
 PR description, link to related documents and PRs
 
-## Related Issues
+## Related issues
 <!-- Add issues in bullet form to show issue titles. Use Github keywords to link+close issues -->
 
-## Testing Steps
+## Testing steps
 <!-- Steps to test the changes. Remove if not relevant -->
 
 <!-- Reminders:
