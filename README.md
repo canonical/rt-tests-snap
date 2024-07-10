@@ -39,13 +39,20 @@ sudo snap install rt-tests
 
 ## Configure
 
-It's necessary to connect the [process-control](https://snapcraft.io/docs/process-control-interface), [mount-observe](https://snapcraft.io/docs/mount-observe-interface) and [system-trace](https://snapcraft.io/docs/system-trace-interface) interfaces to work properly:
+It's necessary to connect:
+- [process-control](https://snapcraft.io/docs/process-control-interface) interface;
+- [mount-observe](https://snapcraft.io/docs/mount-observe-interface) interface;
+- [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
+- `sys-kernel-debug-sched-features` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
+
 
 ```bash
 sudo snap connect rt-tests:process-control
 sudo snap connect rt-tests:mount-observe
 sudo snap connect rt-tests:system-trace
+sudo snap connect rt-tests:sys-kernel-debug-sched-features
 ```
+> **_NOTE:_** The `sys-kernel-debug-sched-features` interface gets auto-connected when installed from the store.
 
 ## Use
 The program commands are available within the snap's namespace.

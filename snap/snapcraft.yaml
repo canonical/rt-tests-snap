@@ -25,6 +25,10 @@ platforms:
     build-for: [arm64]
 
 plugs:
+  sys-kernel-debug-sched-features:
+    interface: system-files
+    write:
+      - /sys/kernel/debug/sched/features
   process-control:
     interface: process-control
 
@@ -49,6 +53,7 @@ apps:
 
   deadline-test:
     command: usr/bin/deadline_test
+    plugs: [ mount-observe, system-trace, sys-kernel-debug-sched-features ]
   
   hackbench:
     command: usr/bin/hackbench
@@ -88,6 +93,7 @@ apps:
 
   hwlatdetect:
     command: usr/sbin/hwlatdetect
+    plugs: [ mount-observe, system-trace ]
   
   get-cyclictest-snapshot:
     command: usr/sbin/get_cyclictest_snapshot
