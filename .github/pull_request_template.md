@@ -1,16 +1,17 @@
 ## Summary
-PR description, link to related documents and PRs
+<!-- PR description, link to related documents and PRs -->
 
 ## Related issues
-<!-- Add issues in bullet form to show issue titles. Use Github keywords to link+close issues -->
+<!-- Add issues in bullets. Use Github keywords to link the PR to issues -->
 
 ## Testing steps
-<!-- Steps to test the changes. Remove if not relevant -->
+<!-- Steps to test the changes -->
 
 <!-- Reminders:
- - Incremented the snap version
- - Added or updated tests
- - Updated the CI/CD pipelines
- - Updated the README(s)
- - Updated external documentation
+ - Remove empty sections
+ - Increment the version
+ - Add/update tests
+ - Update CI/CD pipelines
+ - Update README(s)
+ - Update external docs
 -->
