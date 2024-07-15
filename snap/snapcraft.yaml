@@ -24,6 +24,13 @@ platforms:
     build-on: [arm64]
     build-for: [arm64]
 
+slots:
+  posix-mq-provider:
+    interface: posix-mq
+    path: /mqueue
+    permissions:
+      - read
+
 plugs:
   sys-kernel-debug-sched-features:
     interface: system-files
@@ -69,6 +76,7 @@ apps:
 
   pmqtest:
     command: usr/bin/pmqtest
+    plugs: [ posix-mq ]
   
   ptsematest:
     command: usr/bin/ptsematest

@@ -45,6 +45,7 @@ It's necessary to connect:
 - [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
 - [cpu-control](https://snapcraft.io/docs/cpu-control-interface) interface;
 - `sys-kernel-debug-sched-features` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
+- `posix-mq` plug into the `posix-mq-provider` slot through the interface [posix-mq](https://snapcraft.io/docs/posix-mq-interface)
 
 
 ```bash
@@ -53,6 +54,7 @@ sudo snap connect rt-tests:mount-observe
 sudo snap connect rt-tests:system-trace
 sudo snap connect rt-tests:sys-kernel-debug-sched-features
 sudo snap connect rt-tests:cpu-control
+sudo snap connect rt-tests:posix-mq rt-tests:posix-mq-provider
 ```
 > **_NOTE:_** The `cpu-control` interface gets auto-connected when installed from the store.
 
