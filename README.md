@@ -44,8 +44,6 @@ It's necessary to connect:
 - [mount-observe](https://snapcraft.io/docs/mount-observe-interface) interface;
 - [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
 - `sys-kernel-debug-sched-features` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
-- `posix-mq` plug into the `posix-mq-provider` slot through the [posix-mq](https://snapcraft.io/docs/posix-mq-interface) interface;
-
 
 
 ```bash
