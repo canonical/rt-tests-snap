@@ -25,15 +25,13 @@ platforms:
     build-for: [arm64]
 
 slots:
-  posix-mq-provider:
+  posix-mq:
     interface: posix-mq
     path:
       - /syncmsg
       - /testmsg
     permissions:
       - read
-      - write
-      - create
 
 plugs:
   sys-kernel-debug-sched-features:
@@ -80,7 +78,7 @@ apps:
 
   pmqtest:
     command: usr/bin/pmqtest
-    plugs: [ posix-mq ]
+    slots: [ posix-mq ]
 
   ptsematest:
     command: usr/bin/ptsematest
