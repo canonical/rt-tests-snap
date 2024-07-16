@@ -53,7 +53,6 @@ sudo snap connect rt-tests:process-control
 sudo snap connect rt-tests:mount-observe
 sudo snap connect rt-tests:system-trace
 sudo snap connect rt-tests:sys-kernel-debug-sched-features
-sudo snap connect rt-tests:posix-mq rt-tests:posix-mq-provider
 ```
 > **_NOTE:_** The `sys-kernel-debug-sched-features` interface gets auto-connected when installed from the store.
 
