@@ -25,7 +25,7 @@ platforms:
     build-for: [arm64]
 
 slots:
-  posix-mq:
+  rt-tests-posix-mq:
     interface: posix-mq
     path:
       - /syncmsg
