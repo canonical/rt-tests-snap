@@ -24,6 +24,15 @@ platforms:
     build-on: [arm64]
     build-for: [arm64]
 
+slots:
+  rt-tests-posix-mq:
+    interface: posix-mq
+    path:
+      - /syncmsg
+      - /testmsg
+    permissions:
+      - read
+
 plugs:
   sys-kernel-debug-sched-features:
     interface: system-files
@@ -47,14 +56,14 @@ apps:
   cyclicdeadline:
     command: usr/bin/cyclicdeadline
     plugs: [ mount-observe, system-trace ]
-  
+
   cyclictest:
     command: usr/bin/cyclictest
 
   deadline-test:
     command: usr/bin/deadline_test
     plugs: [ mount-observe, system-trace, sys-kernel-debug-sched-features ]
-  
+
   hackbench:
     command: usr/bin/hackbench
 
@@ -69,7 +78,8 @@ apps:
 
   pmqtest:
     command: usr/bin/pmqtest
-  
+    slots: [ posix-mq ]
+
   ptsematest:
     command: usr/bin/ptsematest
 
@@ -78,22 +88,22 @@ apps:
 
   rt-migrate-test:
     command: usr/bin/rt-migrate-test
-  
+
   signaltest:
     command: usr/bin/signaltest
-  
+
   sigwaittest:
     command: usr/bin/sigwaittest
-  
+
   ssdd:
     command: usr/bin/ssdd
-  
+
   svsematest:
     command: usr/bin/svsematest
 
   hwlatdetect:
     command: usr/sbin/hwlatdetect
     plugs: [ mount-observe, system-trace ]
-  
+
   get-cyclictest-snapshot:
     command: usr/sbin/get_cyclictest_snapshot
