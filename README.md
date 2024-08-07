@@ -21,7 +21,7 @@ The programs include:
 - [rt-migrate-test](https://manpages.ubuntu.com/manpages/noble/en/man8/rt-migrate-test.8.html)
 - [signaltest](https://manpages.ubuntu.com/manpages/noble/en/man8/signaltest.8.html)
 - [sigwaittest](https://manpages.ubuntu.com/manpages/noble/en/man8/sigwaittest.8.html)
-- [ssdd](https://manpages.ubuntu.com/manpages/noble/en/man8/ssdd.8.html) 
+- [ssdd](https://manpages.ubuntu.com/manpages/noble/en/man8/ssdd.8.html) rt-tests needs to be installed in [devmode](https://snapcraft.io/docs/install-modes#heading--devmode)
 - [svsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/svsematest.8.html)
 
 ## Known Issues
