@@ -38,8 +38,6 @@ plugs:
     interface: system-files
     write:
       - /sys/kernel/debug/sched/features
-  process-control:
-    interface: process-control
 
 parts:
   rt-tests:
@@ -59,10 +57,11 @@ apps:
 
   cyclictest:
     command: usr/bin/cyclictest
+    plugs: [ process-control ]
 
   deadline-test:
     command: usr/bin/deadline_test
-    plugs: [ mount-observe, system-trace, sys-kernel-debug-sched-features ]
+    plugs: [ process-control, mount-observe, system-trace, sys-kernel-debug-sched-features ]
 
   hackbench:
     command: usr/bin/hackbench
@@ -72,16 +71,20 @@ apps:
 
   pi-stress:
     command: usr/bin/pi_stress
+    plugs: [ process-control ]
 
   pip-stress:
     command: usr/bin/pip_stress
+    plugs: [ process-control ]
 
   pmqtest:
     command: usr/bin/pmqtest
     slots: [ posix-mq ]
+    plugs: [ process-control ]
 
   ptsematest:
     command: usr/bin/ptsematest
+    plugs: [ process-control ]
 
   queuelat:
     command: usr/bin/queuelat
@@ -91,15 +94,18 @@ apps:
 
   signaltest:
     command: usr/bin/signaltest
+    plugs: [ process-control ]
 
   sigwaittest:
     command: usr/bin/sigwaittest
+    plugs: [ process-control ]
 
   ssdd:
     command: usr/bin/ssdd
 
   svsematest:
     command: usr/bin/svsematest
+    plugs: [ process-control ]
 
   hwlatdetect:
     command: usr/sbin/hwlatdetect
@@ -107,3 +113,4 @@ apps:
 
   get-cyclictest-snapshot:
     command: usr/sbin/get_cyclictest_snapshot
+
