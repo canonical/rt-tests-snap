@@ -41,11 +41,13 @@ plugs:
 
 parts:
   rt-tests:
+    source: .
     plugin: nil
     build-packages:
       - rt-tests
+      - git
     override-build: |
-      craftctl set version=$(oslat --version | cut -d ' ' -f 3)
+      craftctl set version=$(oslat --version | cut -d ' ' -f 3)+$(git rev-parse --short HEAD)
     stage-packages:
       - rt-tests
 
