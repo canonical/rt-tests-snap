@@ -81,7 +81,7 @@ apps:
 
   pmqtest:
     command: usr/bin/pmqtest
-    slots: [ posix-mq ]
+    slots: [ rt-tests-posix-mq ]
     plugs: [ process-control ]
 
   ptsematest:
