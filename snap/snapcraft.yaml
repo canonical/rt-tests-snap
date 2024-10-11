@@ -24,21 +24,30 @@ platforms:
     build-on: [arm64]
     build-for: [arm64]
 
+slots:
+  rt-tests-posix-mq:
+    interface: posix-mq
+    path:
+      - /syncmsg
+      - /testmsg
+    permissions:
+      - read
+
 plugs:
   sys-kernel-debug-sched-features:
     interface: system-files
     write:
       - /sys/kernel/debug/sched/features
-  process-control:
-    interface: process-control
 
 parts:
   rt-tests:
+    source: .
     plugin: nil
     build-packages:
       - rt-tests
+      - git
     override-build: |
-      craftctl set version=$(oslat --version | cut -d ' ' -f 3)
+      craftctl set version=$(oslat --version | cut -d ' ' -f 3)+$(git rev-parse --short HEAD)
     stage-packages:
       - rt-tests
 
@@ -46,15 +55,16 @@ apps:
 
   cyclicdeadline:
     command: usr/bin/cyclicdeadline
-    plugs: [ mount-observe, system-trace, cpu-control ]
-  
+    plugs: [ mount-observe, system-trace ]
+
   cyclictest:
     command: usr/bin/cyclictest
+    plugs: [ process-control ]
 
   deadline-test:
     command: usr/bin/deadline_test
-    plugs: [ mount-observe, system-trace, sys-kernel-debug-sched-features ]
-  
+    plugs: [ process-control, mount-observe, system-trace, sys-kernel-debug-sched-features ]
+
   hackbench:
     command: usr/bin/hackbench
 
@@ -63,33 +73,41 @@ apps:
 
   pi-stress:
     command: usr/bin/pi_stress
+    plugs: [ process-control ]
 
   pip-stress:
     command: usr/bin/pip_stress
+    plugs: [ process-control ]
 
   pmqtest:
     command: usr/bin/pmqtest
-  
+    slots: [ rt-tests-posix-mq ]
+    plugs: [ process-control ]
+
   ptsematest:
     command: usr/bin/ptsematest
+    plugs: [ process-control ]
 
   queuelat:
     command: usr/bin/queuelat
 
   rt-migrate-test:
     command: usr/bin/rt-migrate-test
-  
+
   signaltest:
     command: usr/bin/signaltest
-  
+    plugs: [ process-control ]
+
   sigwaittest:
     command: usr/bin/sigwaittest
-  
+    plugs: [ process-control ]
+
   ssdd:
     command: usr/bin/ssdd
-  
+
   svsematest:
     command: usr/bin/svsematest
+    plugs: [ process-control ]
 
   hwlatdetect:
     command: usr/sbin/hwlatdetect
@@ -97,3 +115,4 @@ apps:
   
   get-cyclictest-snapshot:
     command: usr/sbin/get_cyclictest_snapshot
+

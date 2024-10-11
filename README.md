@@ -21,7 +21,7 @@ The programs include:
 - [rt-migrate-test](https://manpages.ubuntu.com/manpages/noble/en/man8/rt-migrate-test.8.html)
 - [signaltest](https://manpages.ubuntu.com/manpages/noble/en/man8/signaltest.8.html)
 - [sigwaittest](https://manpages.ubuntu.com/manpages/noble/en/man8/sigwaittest.8.html)
-- [ssdd](https://manpages.ubuntu.com/manpages/noble/en/man8/ssdd.8.html) 
+- [ssdd](https://manpages.ubuntu.com/manpages/noble/en/man8/ssdd.8.html) - Works only when the snap is installed in [devmode](https://snapcraft.io/docs/install-modes#heading--devmode); see [#12](https://github.com/canonical/rt-tests-snap/issues/12)
 - [svsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/svsematest.8.html)
 
 ## Known Issues
@@ -54,7 +54,9 @@ sudo snap connect rt-tests:system-trace
 sudo snap connect rt-tests:sys-kernel-debug-sched-features
 sudo snap connect rt-tests:cpu-control
 ```
-> **_NOTE:_** The `sys-kernel-debug-sched-features` interface gets auto-connected when installed from the store.
+> [!NOTE]
+> - The `sys-kernel-debug-sched-features` interface gets auto-connected when installed from the store.
+> - The `pmqtest` app is granted access to use POSIX message queues via the [posix-mq](https://snapcraft.io/docs/posix-mq-interface)  interface.
 
 ## Use
 The program commands are available within the snap's namespace.
