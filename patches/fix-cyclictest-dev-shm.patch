@@ -1,0 +1,26 @@
+From a7f4ac2b0d812fc5a8a1232f57493bdee564aa64 Mon Sep 17 00:00:00 2001
+From: Lincoln Wallace <lincoln.wallace@canonical.com>
+Date: Thu, 10 Oct 2024 08:09:03 -0300
+Subject: [PATCH] fix: Use allowed AppArmor path for writting on /dev/shm
+
+Signed-off-by: Lincoln Wallace <lincoln.wallace@canonical.com>
+---
+ src/cyclictest/cyclictest.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/cyclictest/cyclictest.c b/src/cyclictest/cyclictest.c
+index c5c3389..9469c74 100644
+--- a/src/cyclictest/cyclictest.c
++++ b/src/cyclictest/cyclictest.c
+@@ -1603,7 +1603,7 @@ static int rstat_shm_open(void)
+ 
+ 	pid = getpid();
+ 
+-	snprintf(shm_name, SHM_BUF_SIZE, "%s%d", "/cyclictest", pid);
++	snprintf(shm_name, SHM_BUF_SIZE, "%s%d", "/snap.rt-tests.", pid);
+ 
+ 	errno = 0;
+ 	fd = shm_unlink(shm_name);
+-- 
+2.43.0
+

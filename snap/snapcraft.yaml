@@ -14,7 +14,7 @@ description: |
 license: GPL-2.0-or-later AND LGPL-2.1-or-later
 grade: stable
 confinement: strict
-adopt-info: rt-tests
+adopt-info: version
 
 platforms:
   amd64:
@@ -40,16 +40,68 @@ plugs:
       - /sys/kernel/debug/sched/features
 
 parts:
-  rt-tests:
-    source: .
+
+  version:
     plugin: nil
-    build-packages:
-      - rt-tests
-      - git
+    source: .
     override-build: |
-      craftctl set version=$(oslat --version | cut -d ' ' -f 3)+$(git rev-parse --short HEAD)
-    stage-packages:
-      - rt-tests
+      craftctl set version=2.7+$(git rev-parse --short HEAD)
+  
+  deb-patches:
+    plugin: nil
+    source: https://git.launchpad.net/ubuntu/+source/rt-tests
+    source-depth: 1
+    source-branch: ubuntu/devel
+    source-type: git
+    override-build: |
+      cp debian/patches/*.patch $CRAFT_STAGE
+
+  patches:
+    plugin: nil
+    source: patches
+    override-build: |
+      cp *.patch $CRAFT_STAGE
+
+  realtime-tests:
+      after:
+        - patches
+      plugin: make
+      source: https://git.kernel.org/pub/scm/utils/rt-tests/rt-tests.git
+      source-tag: v2.7
+      source-depth: 1
+      build-packages:
+          - git
+          - build-essential
+          - libnuma-dev
+          - python3
+          - tree
+      stage-packages:
+          - libnuma1
+      prime:
+          - usr/bin/cyclicdeadline
+          - usr/bin/cyclictest
+          - usr/bin/deadline_test
+          - usr/sbin/get-cyclictest-snapshot
+          - usr/bin/hackbech
+          - usr/sbin/hwlatdetect
+          - usr/bin/pip_stress
+          - usr/bin/pi_stress
+          - usr/bin/pmqtest
+          - usr/bin/ptsematest
+          - usr/bin/rt-migrate-test
+          - usr/bin/signaltest
+          - usr/bin/sigwaittest
+          - usr/bin/svsematest
+          - usr/bin/ssdd
+          - usr/bin/oslat
+          - usr/bin/queuelat
+          - usr/lib/**/libnuma*
+      override-build: |
+
+        # git apply $CRAFT_STAGE/*.patch
+        ls $CRAFT_STAGE/*.patch | xargs -n 1 git apply
+
+        craftctl default
 
 apps:
 
@@ -59,7 +111,7 @@ apps:
 
   cyclictest:
     command: usr/bin/cyclictest
-    plugs: [ process-control ]
+    plugs: [ process-control, system-trace ]
 
   deadline-test:
     command: usr/bin/deadline_test
