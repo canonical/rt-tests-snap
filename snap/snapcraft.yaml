@@ -113,7 +113,7 @@ apps:
 
   cyclictest:
     command: usr/bin/cyclictest
-    plugs: [ process-control ]
+    plugs: [ process-control, shared-memory ]
 
   deadline-test:
     command: usr/bin/deadline_test
