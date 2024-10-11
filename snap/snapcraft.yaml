@@ -38,6 +38,8 @@ plugs:
     interface: system-files
     write:
       - /sys/kernel/debug/sched/features
+  shared-memory:
+    private: true
 
 parts:
 
