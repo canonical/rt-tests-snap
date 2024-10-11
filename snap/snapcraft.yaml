@@ -59,7 +59,7 @@ apps:
 
   cyclictest:
     command: usr/bin/cyclictest
-    plugs: [ process-control ]
+    plugs: [ process-control, cpu-control ]
 
   deadline-test:
     command: usr/bin/deadline_test
