@@ -43,7 +43,7 @@ jobs:
         with:
           name: ${{ env.SNAP_AMD64 }}
 
-      - name: refresh snapD
+      - name: refresh snapd
         run: |
           sudo snap refresh snapd
 
