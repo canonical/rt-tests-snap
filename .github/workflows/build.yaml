@@ -43,6 +43,10 @@ jobs:
         with:
           name: ${{ env.SNAP_AMD64 }}
 
+      - name: refresh snapD
+        run: |
+          sudo snap refresh snapd
+
       - name: Install snap
         run: |
           sudo snap install --dangerous *.snap
