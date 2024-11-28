@@ -57,6 +57,7 @@ sudo snap connect rt-tests:cpu-control
 > [!NOTE]
 > - The `sys-kernel-debug-sched-features` interface gets auto-connected when installed from the store.
 > - The `pmqtest` app is granted access to use POSIX message queues via the [posix-mq](https://snapcraft.io/docs/posix-mq-interface)  interface.
+> - The `shared-memory` interface is also auto-connected. For more details, refer to the [shared-memory interface documentation](https://snapcraft.io/docs/shared-memory-interface).
 
 ## Use
 The program commands are available within the snap's namespace.

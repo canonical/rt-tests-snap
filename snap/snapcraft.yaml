@@ -38,6 +38,8 @@ plugs:
     interface: system-files
     write:
       - /sys/kernel/debug/sched/features
+  shared-memory:
+    private: true
 
 parts:
   rt-tests:
@@ -59,7 +61,7 @@ apps:
 
   cyclictest:
     command: usr/bin/cyclictest
-    plugs: [ process-control, cpu-control ]
+    plugs: [ process-control, cpu-control, shared-memory ]
 
   deadline-test:
     command: usr/bin/deadline_test
