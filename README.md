@@ -44,6 +44,7 @@ It's necessary to connect:
 - [mount-observe](https://snapcraft.io/docs/mount-observe-interface) interface;
 - [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
 - `sys-kernel-debug-sched-features` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
+- [cpu-control](https://snapcraft.io/docs/cpu-control-interface) interface
 
 
 ```bash
@@ -51,6 +52,7 @@ sudo snap connect rt-tests:process-control
 sudo snap connect rt-tests:mount-observe
 sudo snap connect rt-tests:system-trace
 sudo snap connect rt-tests:sys-kernel-debug-sched-features
+sudo snap connect rt-tests:cpu-control
 ```
 > [!NOTE]
 > - The `sys-kernel-debug-sched-features` interface gets auto-connected when installed from the store.

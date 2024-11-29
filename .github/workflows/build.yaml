@@ -43,6 +43,10 @@ jobs:
         with:
           name: ${{ env.SNAP_AMD64 }}
 
+      - name: refresh snapd
+        run: |
+          sudo snap refresh snapd
+
       - name: Install snap
         run: |
           sudo snap install --dangerous *.snap
@@ -53,6 +57,7 @@ jobs:
           sudo snap connect rt-tests:mount-observe
           sudo snap connect rt-tests:system-trace
           sudo snap connect rt-tests:sys-kernel-debug-sched-features
+          sudo snap connect rt-tests:cpu-control
 
       - name: Creating snap aliases
         working-directory: test

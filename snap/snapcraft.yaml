@@ -61,7 +61,7 @@ apps:
 
   cyclictest:
     command: usr/bin/cyclictest
-    plugs: [ process-control, shared-memory ]
+    plugs: [ process-control, cpu-control, shared-memory ]
 
   deadline-test:
     command: usr/bin/deadline_test
@@ -113,7 +113,7 @@ apps:
 
   hwlatdetect:
     command: usr/sbin/hwlatdetect
-    plugs: [ mount-observe, system-trace ]
+    plugs: [ mount-observe, system-trace, cpu-control ]
 
   get-cyclictest-snapshot:
     command: usr/sbin/get_cyclictest_snapshot
