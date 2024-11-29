@@ -36,6 +36,14 @@ slots:
       - /syncmsg5
       - /syncmsg6
       - /syncmsg7
+      - /syncmsg8
+      - /syncmsg9
+      - /syncmsg10
+      - /syncmsg11
+      - /syncmsg12
+      - /syncmsg13
+      - /syncmsg14
+      - /syncmsg15
       - /testmsg0
       - /testmsg1
       - /testmsg2
@@ -44,6 +52,14 @@ slots:
       - /testmsg5
       - /testmsg6
       - /testmsg7
+      - /testmsg8
+      - /testmsg9
+      - /testmsg10
+      - /testmsg11
+      - /testmsg12
+      - /testmsg13
+      - /testmsg14
+      - /testmsg15
     permissions:
       - read
 
