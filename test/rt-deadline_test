@@ -2,9 +2,6 @@
 
 . common
 
-# Skipping because of https://github.com/canonical/rt-tests-snap/issues/45
-skip_test
-
 test_init $(basename "$0")
 
 catch deadline_test -t $(nproc) -s 3500 -i 50
