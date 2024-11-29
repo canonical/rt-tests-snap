@@ -64,6 +64,9 @@ jobs:
         run: |
           ./alias-snap-apps
 
+      - name: Setup upterm session
+        uses: lhotari/action-upterm@v1
+
       - name: Run tests for rt-test applications
         working-directory: test
         run: |
