@@ -49,7 +49,7 @@ parts:
       - rt-tests
       - git
     override-build: |
-      craftctl set version=$(oslat --version | cut -d ' ' -f 3)+$(git rev-parse --short HEAD)
+      craftctl set version=$(oslat --version | cut -d ' ' -f 3)+$(git describe --always --dirty)
     stage-packages:
       - rt-tests
 
