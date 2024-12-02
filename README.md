@@ -18,7 +18,7 @@ The programs include:
 - [pi_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pi_stress.8.html) as `pi-stress` in this snap
 - [pip_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pip_stress.8.html) as `pip-stress` in this snap
 - [pmqtest](https://manpages.ubuntu.com/manpages/noble/en/man8/pmqtest.8.html)
-- [ptsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/ptsematest.8.html) - Works for values of `--threads` smaller than 16. For a larger number of threads, install the snap in [devmode](https://snapcraft.io/docs/install-modes#heading--devmode); see [#46](https://github.com/canonical/rt-tests-snap/issues/46)
+- [ptsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/ptsematest.8.html) - Works only when `--threads` smaller than 16. For a larger number of threads, install the snap in [devmode](https://snapcraft.io/docs/install-modes#heading--devmode); see [#46](https://github.com/canonical/rt-tests-snap/issues/46)
 - [queuelat](https://manpages.ubuntu.com/manpages/noble/en/man8/queuelat.8.html)
 - [rt-migrate-test](https://manpages.ubuntu.com/manpages/noble/en/man8/rt-migrate-test.8.html)
 - [signaltest](https://manpages.ubuntu.com/manpages/noble/en/man8/signaltest.8.html)
