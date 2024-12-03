@@ -4,7 +4,7 @@
 
 test_init $(basename "$0")
 
-catch pmqtest --loops=10 --prio=80 --threads=1 --quiet
+catch pmqtest --loops=10 --prio=80 --quiet
 
 app_exit_check $?
 
