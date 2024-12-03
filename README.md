@@ -63,17 +63,17 @@ sudo snap connect rt-tests:cpu-control
 The program commands are available within the snap's namespace.
 For example, the command for `cyclictest` is `rt-tests.cyclictest`:
 
-On a Raspberry Pi 5 running Real-time Ubuntu 24.04:
+On a Raspberry Pi 5 running Real-time Ubuntu 24.04.1 LTS:
+
 ```console
 $ sudo rt-tests.cyclictest --mlockall --smp --priority=80 --interval=200 --distance=0 --loops=100000
-WARN: open /dev/cpu_dma_latency: Operation not permitted
-ERROR: shm_open Permission denied
-policy: fifo: loadavg: 0.66 0.49 0.33 1/198 3722          
+# /dev/cpu_dma_latency set to 0us
+policy: fifo: loadavg: 0.69 0.24 0.09 1/203 1134
 
-T: 0 ( 3719) P:80 I:200 C: 100000 Min:      3 Act:    5 Avg:    5 Max:      26
-T: 1 ( 3720) P:80 I:200 C:  99957 Min:      2 Act:    5 Avg:    5 Max:      19
-T: 2 ( 3721) P:80 I:200 C:  99919 Min:      3 Act:    6 Avg:    5 Max:      22
-T: 3 ( 3722) P:80 I:200 C:  99875 Min:      3 Act:    6 Avg:    5 Max:      18
+T: 0 ( 1128) P:80 I:200 C: 100000 Min:      2 Act:    6 Avg:    7 Max:      26
+T: 1 ( 1129) P:80 I:200 C:  99995 Min:      3 Act:    6 Avg:    7 Max:      20
+T: 2 ( 1130) P:80 I:200 C:  99951 Min:      3 Act:    6 Avg:    7 Max:      24
+T: 3 ( 1131) P:80 I:200 C:  99906 Min:      3 Act:    6 Avg:    7 Max:      21
 ```
 
 ### Add aliases
