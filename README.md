@@ -1,14 +1,16 @@
 
 # rt-tests snap
+
 [![rt-tests](https://snapcraft.io/rt-tests/badge.svg)](https://snapcraft.io/rt-tests)
 
 This is a snap packaging of
 [rt-tests](https://wiki.linuxfoundation.org/realtime/documentation/howto/tools/rt-tests),
-a set of programs to test various real-time Linux features. 
+a set of programs to test various real-time Linux features.
 
-The programs include: 
+The programs include:
+
 - [cyclicdeadline](https://manpages.ubuntu.com/manpages/noble/man8/cyclicdeadline.8.html)
-- [cyclictest](https://manpages.ubuntu.com/manpages/noble/en/man8/cyclictest.8.html) 
+- [cyclictest](https://manpages.ubuntu.com/manpages/noble/en/man8/cyclictest.8.html)
 - [deadline_test](https://manpages.ubuntu.com/manpages/noble/man8/deadline_test.8.html) as `deadline-test` in this snap
 - [hackbench](https://manpages.ubuntu.com/manpages/noble/man8/hackbench.8.html)
 - [hwlatdetect](https://manpages.ubuntu.com/manpages/noble/en/man8/hwlatdetect.8.html)
@@ -16,7 +18,7 @@ The programs include:
 - [pi_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pi_stress.8.html) as `pi-stress` in this snap
 - [pip_stress](https://manpages.ubuntu.com/manpages/noble/en/man8/pip_stress.8.html) as `pip-stress` in this snap
 - [pmqtest](https://manpages.ubuntu.com/manpages/noble/en/man8/pmqtest.8.html)
-- [ptsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/ptsematest.8.html)
+- [ptsematest](https://manpages.ubuntu.com/manpages/noble/en/man8/ptsematest.8.html) - Works only when `--threads` is set to it's default value `1` or when not defined. For any other number of threads, install the snap in [devmode](https://snapcraft.io/docs/install-modes#heading--devmode); see [#46](https://github.com/canonical/rt-tests-snap/issues/46)
 - [queuelat](https://manpages.ubuntu.com/manpages/noble/en/man8/queuelat.8.html)
 - [rt-migrate-test](https://manpages.ubuntu.com/manpages/noble/en/man8/rt-migrate-test.8.html)
 - [signaltest](https://manpages.ubuntu.com/manpages/noble/en/man8/signaltest.8.html)
@@ -61,6 +63,7 @@ sudo snap connect rt-tests:cpu-control
 ```
 
 ## Use
+
 The program commands are available within the snap's namespace.
 For example, the command for `cyclictest` is `rt-tests.cyclictest`:
 
@@ -78,7 +81,9 @@ T: 3 ( 1131) P:80 I:200 C:  99906 Min:      3 Act:    6 Avg:    7 Max:      21
 ```
 
 ### Add aliases
+
 You can add [aliases](https://snapcraft.io/docs/commands-and-aliases) to run the program commands without the namespace. For example:
+
 ```console
 $ sudo snap alias rt-tests.cyclictest cyclictest
 Added:

@@ -28,8 +28,8 @@ slots:
   rt-tests-posix-mq:
     interface: posix-mq
     path:
-      - /syncmsg
-      - /testmsg
+      - /syncmsg0
+      - /testmsg0
     permissions:
       - read
 
