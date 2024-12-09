@@ -39,13 +39,18 @@ sudo snap install rt-tests
 
 ## Configure
 
-It's necessary to connect:
-- [process-control](https://snapcraft.io/docs/process-control-interface) interface;
-- [mount-observe](https://snapcraft.io/docs/mount-observe-interface) interface;
-- [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
-- `sys-kernel-debug-sched-features` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
-- [cpu-control](https://snapcraft.io/docs/cpu-control-interface) interface
+> [!NOTE]
+> All needed interfaces are auto-connected when installing from store:
+>
+> - [cpu-control](https://snapcraft.io/docs/cpu-control-interface) interface
+> - [mount-observe](https://snapcraft.io/docs/mount-observe-interface) interface;
+> - The `pmqtest` app is granted access to use POSIX message queues via the [posix-mq](https://snapcraft.io/docs/posix-mq-interface)  interface.
+> - [process-control](https://snapcraft.io/docs/process-control-interface) interface;
+> - [shared-memory](https://snapcraft.io/docs/shared-memory-interface) interface;
+> - `sys-kernel-debug-sched-features` plug into the [system-files](https://snapcraft.io/docs/system-files-interface) interface;
+> - [system-trace](https://snapcraft.io/docs/system-trace-interface) interface;
 
+If the snap is [built locally](#local-build), it's necessary to manually connect the following interfaces:
 
 ```bash
 sudo snap connect rt-tests:process-control
@@ -54,10 +59,6 @@ sudo snap connect rt-tests:system-trace
 sudo snap connect rt-tests:sys-kernel-debug-sched-features
 sudo snap connect rt-tests:cpu-control
 ```
-> [!NOTE]
-> - The `sys-kernel-debug-sched-features` interface gets auto-connected when installed from the store.
-> - The `pmqtest` app is granted access to use POSIX message queues via the [posix-mq](https://snapcraft.io/docs/posix-mq-interface)  interface.
-> - The `shared-memory` interface is also auto-connected. For more details, refer to the [shared-memory interface documentation](https://snapcraft.io/docs/shared-memory-interface).
 
 ## Use
 The program commands are available within the snap's namespace.
