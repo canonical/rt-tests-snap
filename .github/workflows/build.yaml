@@ -43,9 +43,10 @@ jobs:
         with:
           name: ${{ env.SNAP_AMD64 }}
 
-      - name: Install/refresh snapd
+      - name: Ensure snapd is ready
         run: |
-          sudo snap install snapd
+          sudo systemctl start snapd
+          sudo snap wait system seed.loaded
 
       - name: Install snap
         run: |
