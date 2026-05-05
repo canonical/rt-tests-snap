@@ -121,11 +121,11 @@ sudo snap alias rt-tests.svsematest svsematest
 Firstly, build it using [Snapcraft](https://snapcraft.io/snapcraft):
 
 ```bash
-snapcraft -v
+snapcraft pack
 ```
 
 Then, install it in [dangerous mode](https://snapcraft.io/docs/install-modes#heading--dangerous):
 
 ```bash
-sudo snap install --dangerous *.snap
+sudo snap install --dangerous rt-tests*.snap
 ```
