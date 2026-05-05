@@ -49,7 +49,7 @@ parts:
       - rt-tests
       - git
     override-build: |
-      craftctl set version=$(oslat --version | cut -d ' ' -f 3)+$(git describe --always --dirty)
+      craftctl set version=$(dpkg-query -W -f='${Version}\n' rt-tests)+$(git describe --always --dirty)
     stage-packages:
       - rt-tests
 
