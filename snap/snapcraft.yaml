@@ -1,6 +1,7 @@
 name: rt-tests
 title: RT-Tests
 base: core26
+build-base: devel
 version: nil
 summary: Real-time test suite
 description: |
@@ -11,7 +12,7 @@ description: |
   ptsematest, queuelat, rt-migrate-test, signaltest, sigwaittest, ssdd, svsematest.
 
 license: GPL-2.0-or-later AND LGPL-2.1-or-later
-grade: stable
+grade: devel
 confinement: strict
 adopt-info: rt-tests
 contact:
