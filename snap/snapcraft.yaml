@@ -1,6 +1,6 @@
 name: rt-tests
 title: RT-Tests
-base: core24
+base: core26
 version: nil
 summary: Real-time test suite
 description: |
