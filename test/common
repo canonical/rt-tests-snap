@@ -14,6 +14,9 @@ readonly SKIP_EXIT_CODE=200
 readonly XFAIL_EXIT_CODE=201
 readonly XPASS_EXIT_CODE=202
 
+# Default wall-clock limit (seconds) for catch_timeout
+readonly DEFAULT_TIMEOUT=30
+
 printc() {
     local color="$1"
     shift
@@ -98,6 +101,25 @@ app_exit_check(){
 test_success() {
 	printc "GREEN" "PASS"
 	exit 0
+}
+
+# Like `catch`, but kills the command if it runs longer than a timeout.
+# Usage: catch_timeout [SECONDS] COMMAND [ARG1[ ARG2[ ...]]]
+# If the first argument is a positive integer it's used as the timeout,
+# otherwise DEFAULT_TIMEOUT is used. On timeout, `timeout` sends TERM and
+# then KILL, exiting with status 124, which propagates through `catch`.
+catch_timeout() {
+	local seconds=$DEFAULT_TIMEOUT
+	if [[ $1 =~ ^[0-9]+$ ]]; then
+		seconds=$1
+		shift
+	fi
+	catch timeout --kill-after=5 "$seconds" "$@"
+	local rc=$?
+	if [ $rc -eq 124 ]; then
+		printc "YELLOW" "[WARN] Command timed out after ${seconds}s and was killed"
+	fi
+	return $rc
 }
 
 # Execute the command while `Catch`ing the stdout to APP_STDOUT variable
