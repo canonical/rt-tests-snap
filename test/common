@@ -11,6 +11,8 @@ COLOR['NC']='\033[0m'
 COLOR['CYAN']='\033[0;96m'
 
 readonly SKIP_EXIT_CODE=200
+readonly XFAIL_EXIT_CODE=201
+readonly XPASS_EXIT_CODE=202
 
 printc() {
     local color="$1"
@@ -40,6 +42,30 @@ check_output(){
 skip_test(){
 	printc "YELLOW" "[WARN] Test being skipped"
 	exit $SKIP_EXIT_CODE
+}
+
+# pytest-style xfail: keep running the test, but don't let a failure abort
+# with an error. Call this near the top of a test script (like skip_test).
+# If the test subsequently fails, it's reported as an expected failure (XFAIL);
+# if it unexpectedly passes, it's reported as XPASS.
+expect_fail(){
+	trap '_xfail_handler $?' EXIT
+}
+
+_xfail_handler(){
+	local rc=$1
+	# Clear the trap so our own exit below doesn't re-trigger it
+	trap - EXIT
+	if [ $rc -eq 0 ]; then
+		printc "YELLOW" "[XPASS] Test passed unexpectedly"
+		exit $XPASS_EXIT_CODE
+	elif [ $rc -eq $SKIP_EXIT_CODE ]; then
+		# A skip inside an xfail test is still just a skip
+		exit $rc
+	else
+		printc "YELLOW" "[XFAIL] Test failed as expected (exit $rc)"
+		exit $XFAIL_EXIT_CODE
+	fi
 }
 
 test_init(){

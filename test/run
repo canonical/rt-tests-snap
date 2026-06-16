@@ -4,11 +4,19 @@
 
 check_root
 
-passed=() failed=() skiped=()
+passed=() failed=() skiped=() xfailed=() xpassed=()
 
 check_failure(){
 	if [ $1 -eq $SKIP_EXIT_CODE ]; then
 		skiped=(${skiped[@]} $test)
+		return
+	fi
+	if [ $1 -eq $XFAIL_EXIT_CODE ]; then
+		xfailed=(${xfailed[@]} $test)
+		return
+	fi
+	if [ $1 -eq $XPASS_EXIT_CODE ]; then
+		xpassed=(${xpassed[@]} $test)
 		return
 	fi
 	failed=(${failed[@]} $test)	
@@ -26,6 +34,8 @@ done
 printc "CYAN" "SUMMARY:"
 printc "CYAN" "  SKIPPED ${#skiped[@]}  (${skiped[@]}) "
 printc "CYAN" "  PASSED  ${#passed[@]}"
+printc "CYAN" "  XFAILED ${#xfailed[@]}  (${xfailed[@]}) "
+printc "CYAN" "  XPASSED ${#xpassed[@]}  (${xpassed[@]}) "
 printc "CYAN" "  FAILED  ${#failed[@]}  (${failed[@]})"
 
 [ ${#failed} -eq 0 ]
