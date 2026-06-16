@@ -7,7 +7,7 @@ skip_test
 
 test_init $(basename "$0")
 
-catch ssdd --iters=10 --quiet 
+catch_timeout 30 ssdd --iters=10 --quiet 
 
 app_exit_check $?
 
