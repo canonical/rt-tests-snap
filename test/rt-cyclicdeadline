@@ -4,6 +4,8 @@
 
 test_init $(basename "$0")
 
+expect_fail
+
 catch cyclicdeadline --quiet --interval=3500 --duration=1s --threads=$(nproc)
 
 app_exit_check $?
