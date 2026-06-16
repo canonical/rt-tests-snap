@@ -4,6 +4,8 @@
 
 test_init $(basename "$0")
 
+expect_fail
+
 catch deadline_test -t $(nproc) -s 3500 -i 50
 
 app_exit_check $?

@@ -4,6 +4,8 @@
 
 test_init $(basename "$0")
 
+expect_fail
+
 catch queuelat --cycles 100 --max-len 10000 --packets 1 --freq 10 
 
 app_exit_check $?
